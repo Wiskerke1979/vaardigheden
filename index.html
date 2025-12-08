@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaardigheden Groeituin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">Reflectietool voor leerlingen</p>
+      <h1>Groeituin voor vaardigheden</h1>
+      <p class="lede">Scoor jezelf op vijf niveaus, zie je groei als een bloem en ontdek direct wat je kunt doen om in je Technasiumproject het volgende niveau te halen.</p>
+    </div>
+    <div class="header-badge">
+      <span class="badge-label">Niveaus</span>
+      <div class="badge-levels">1 · 2 · 3 · 4 · 5</div>
+      <p class="badge-caption">1 = startend, 5 = voorbeeldstellend</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <div id="start-overlay" class="start-overlay hidden" role="dialog" aria-modal="true">
+      <div class="start-dialog">
+        <p class="eyebrow">Nieuwe leerling</p>
+        <h2>Begin met een blanco groeibestand</h2>
+        <p class="panel-subtitle">Start op niveau 1 met alle Technasium-vaardigheden of laad een eerder opgeslagen bestand.</p>
+        <div class="start-actions">
+          <button id="start-new-button" class="primary-button" type="button">Start nieuw (niveau 1)</button>
+          <button id="start-import-button" class="ghost-button" type="button">Importeer eerder bestand</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="panel garden-panel">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">Visueel overzicht</p>
+          <h2>Bloem van groei</h2>
+        </div>
+        <p class="panel-subtitle">Elke vaardigheid krijgt een eigen stengel en bloemblad. Hoe hoger je niveau, hoe groter de bloem en hoe verder de stengel groeit.</p>
+        <div class="action-bar">
+          <button id="new-button" class="ghost-button" type="button">Nieuw bestand</button>
+          <button id="export-button" class="ghost-button" type="button">Exporteer voortgang</button>
+          <label for="import-input" class="ghost-button file-trigger" role="button" tabindex="0">Importeer voortgang</label>
+          <input id="import-input" type="file" accept="application/json" aria-label="Importeer voortgang" />
+          <button id="share-button" class="primary-button" type="button">Stuur update naar docent</button>
+        </div>
+      </div>
+      <div id="garden" class="garden" aria-live="polite"></div>
+      <div class="legend">
+        <span class="legend-title">Legenda:</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#5ac8fa"></span> Communiceren</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#ff7ab8"></span> Samenwerken</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#f7b500"></span> Probleem oplossen</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#6dd93b"></span> Creatief</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#9b7bff"></span> Ondernemend</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#f97316"></span> Plannen</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#ef4444"></span> Doorzetten</span>
+      </div>
+    </section>
+
+    <section class="panel cards-panel">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">Zelfreflectie</p>
+          <h2>Jouw vaardigheden</h2>
+        </div>
+        <p class="panel-subtitle">Kies je niveau in je Technasiumopdracht, lees wat het betekent en zie direct wat je kunt doen om door te groeien.</p>
+      </div>
+      <div id="skill-cards" class="cards"></div>
+    </section>
+  </main>
+
+  <template id="skill-card-template">
+    <article class="card">
+      <header class="card-header">
+        <div class="card-title"></div>
+        <div class="level-chip" aria-live="polite"></div>
+      </header>
+      <label class="slider-label">
+        Kies jouw niveau (1-5)
+        <input type="range" min="1" max="5" value="1" class="level-slider" />
+      </label>
+      <div class="level-description"></div>
+      <div class="next-step"></div>
+      <fieldset class="action-choices">
+        <legend>Kies je groeiactie</legend>
+        <label class="choice">
+          <input type="radio" name="action-choice" value="0" />
+          <span class="choice-text"></span>
+        </label>
+        <label class="choice">
+          <input type="radio" name="action-choice" value="1" />
+          <span class="choice-text"></span>
+        </label>
+      </fieldset>
+      <label class="checkbox-label">
+        <input type="checkbox" class="action-done" /> Ik heb deze actie uitgevoerd
+      </label>
+      <label class="upload-label">
+        Bewijsmateriaal uploaden
+        <input type="file" class="evidence-input" />
+        <span class="evidence-name" aria-live="polite"></span>
+      </label>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
