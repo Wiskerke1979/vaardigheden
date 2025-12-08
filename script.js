@@ -4,6 +4,32 @@ const skills = [
     name: 'Communiceren',
     color: '#5ac8fa',
     descriptions: [
+      'Ik vertel globaal wat we bouwen, maar mijn uitleg mist nog voorbeelden uit onze opdracht.',
+      'Ik kan kort uitleggen wat we onderzoeken en vat vragen van docent of opdrachtgever samen.',
+      'Ik pitch duidelijk wat we testen, inclusief resultaat en volgende stap.',
+      'Ik stem toon en visuals af op de opdrachtgever en check actief of hij of zij ons begrijpt.',
+      'Ik presenteer complexe keuzes helder en vertaal feedback naar concrete aanpassingen voor het team.'
+    ],
+    actions: [
+      [
+        'Vertel in drie zinnen wat de opdracht is en laat een teamlid herhalen wat hij of zij begreep.',
+        'Maak een schets of foto van jullie idee en vraag de opdrachtgever één verduidelijkende vraag.'
+      ],
+      [
+        'Bereid een één-minuut-update voor de stand-up en noteer één vraag voor docent of opdrachtgever.',
+        'Gebruik een simpele slide of tekening om je onderzoeksvraag uit te leggen.'
+      ],
+      [
+        'Test een elevator pitch bij een klasgenoot en vraag wat nog onduidelijk is.',
+        'Koppel bij je experiment terug wat je meet en wat jullie volgende test wordt.'
+      ],
+      [
+        'Pas je verhaal aan voor opdrachtgever (impact) en docent (leren) en check of beiden het snappen.',
+        'Gebruik voorbeelden of visuals uit het prototype om gemaakte keuzes te laten zien.'
+      ],
+      [
+        'Leid een demo met de opdrachtgever en noteer expliciet welke wensen je verwerkt.',
+        'Schrijf een korte hand-out voor je team zodat iedereen dezelfde boodschap vertelt.'
       'Ik deel mijn idee, maar ik zoek nog naar woorden en mis soms de kern.',
       'Ik leg kort uit wat ik bedoel en ik luister als iemand vragen heeft.',
       'Ik licht mijn boodschap duidelijk toe en controleer of anderen het begrijpen.',
@@ -38,6 +64,32 @@ const skills = [
     name: 'Samenwerken',
     color: '#ff7ab8',
     descriptions: [
+      'Ik werk aan mijn deel maar vergeet af te stemmen over de opdracht of planning.',
+      'Ik maak basisafspraken en deel wat ik doe in de stand-up.',
+      'Ik verdeel werk, bewaak afspraken en zorg dat iedereen zijn taken snapt.',
+      'Ik zie knelpunten, organiseer hulp en houd het team gefocust op de opdracht.',
+      'Ik coach anderen, zorg voor een veilige werksfeer en verbeter samen onze werkwijze.'
+    ],
+    actions: [
+      [
+        'Plan een stand-up van vijf minuten: wat doet iedereen vandaag voor de opdracht?',
+        'Vraag een teamlid hoe jouw werkstuk zijn of haar deel raakt en stem af.'
+      ],
+      [
+        'Maak samen een takenbord (to-do/in-progress/done) en zet jullie namen erbij.',
+        'Plan een feedbackmoment met het team en noteer de besluiten.'
+      ],
+      [
+        'Check of taken passen bij ieders rol en maak een realistische dagplanning.',
+        'Organiseer een korte demo van ieders tussenresultaat voor de docent.'
+      ],
+      [
+        'Spot een risico (materiaal, tijd, test) en regel wie het oppakt.',
+        'Hou een mini-retro: wat ging goed en wat verbeteren we in de volgende sprint?'
+      ],
+      [
+        'Begeleid een nieuw teamlid bij de opdracht en vraag om reflectie na afloop.',
+        'Introduceer een teamritueel (check-in of review) en evalueer de impact.'
       'Ik doe mijn eigen deel, maar vergeet soms af te stemmen met de groep.',
       'Ik bespreek taken en luister, maar ben nog zoekende in afspraken maken.',
       'Ik maak duidelijke afspraken, kom ze na en geef op tijd updates.',
@@ -72,6 +124,32 @@ const skills = [
     name: 'Probleem oplossen',
     color: '#f7b500',
     descriptions: [
+      'Ik zie dat iets niet werkt in ons ontwerp maar weet nog niet waar te beginnen.',
+      'Ik onderzoek de oorzaak en probeer één oplossingsrichting uit.',
+      'Ik vergelijk meerdere oplossingen en test welke het beste past bij onze criteria.',
+      'Ik herken patronen, voorkom herhaling en betrek anderen bij de keuze.',
+      'Ik ontwerp een aanpak die we kunnen hergebruiken in andere projecten en leg die uit.'
+    ],
+    actions: [
+      [
+        'Formuleer de probleemvraag en lijst wat je al weet of moet meten.',
+        'Maak foto’s of metingen van het defect en noteer drie veronderstellingen.'
+      ],
+      [
+        'Bedenk twee oplossingen en kies welke je eerst prototype.',
+        'Vraag een vakexpert of docent om mee te kijken en leg jullie idee vast.'
+      ],
+      [
+        'Test twee varianten (A/B) en vergelijk met de gestelde eisen.',
+        'Maak een tabel met criteria (kosten, tijd, werking) en scoor elke optie.'
+      ],
+      [
+        'Plan een root-cause-analyse met het team en leg vast wat jullie anders gaan doen.',
+        'Betrek gebruiker of opdrachtgever in de test en verwerk hun feedback.'
+      ],
+      [
+        'Maak een stappenplan of checklist die anderen kunnen volgen bij dit type probleem.',
+        'Presenteer je aanpak in een korte video of poster en deel die met andere teams.'
       'Ik zie dat er iets misgaat maar weet nog niet goed waar ik moet beginnen.',
       'Ik verzamel info en probeer één oplossing, ook al is die nog niet perfect.',
       'Ik vergelijk meerdere opties, kies bewust en test wat het beste werkt.',
@@ -106,6 +184,32 @@ const skills = [
     name: 'Creatief',
     color: '#6dd93b',
     descriptions: [
+      'Ik heb ideeën, maar deel ze nog niet in het projectteam.',
+      'Ik deel een eerste idee en probeer het snel uit, ook als het ruw is.',
+      'Ik werk meerdere concepten uit en kies de beste die past bij de opdrachtgever.',
+      'Ik combineer ideeën van anderen, experimenteer snel en leer van mislukken.',
+      'Ik inspireer anderen met nieuwe vormen en ontwerp samen verder.'
+    ],
+    actions: [
+      [
+        'Schets drie ruwe ideeën voor het prototype zonder te oordelen.',
+        'Maak een moodboard met voorbeelden uit vergelijkbare technasiumprojecten.'
+      ],
+      [
+        'Bouw een papieren of LEGO-proof-of-concept en laat het team reageren.',
+        'Vraag de opdrachtgever één verbeterpunt op je schets en pas het aan.'
+      ],
+      [
+        'Ontwerp twee concepten en toets ze aan de eisen van de opdrachtgever.',
+        'Organiseer een snelle brainstorm (6-3-5) en kies het beste idee.'
+      ],
+      [
+        'Plan een mini-experiment van dertig minuten en noteer wat je leert.',
+        'Combineer twee ideeën tot een hybride prototype en test het.'
+      ],
+      [
+        'Host een inspiratie-sessie voor andere teams en documenteer jullie werkvorm.',
+        'Maak een showcase met foto’s of video’s en beschrijf hoe feedback is verwerkt.'
       'Ik heb ideeën, maar ze blijven vaak in mijn hoofd.',
       'Ik deel één of twee ideeën en probeer ze uit, ook als ze nog ruw zijn.',
       'Ik bedenk meerdere invalshoeken en kies de meest verrassende die werkt.',
@@ -140,6 +244,106 @@ const skills = [
     name: 'Ondernemend',
     color: '#9b7bff',
     descriptions: [
+      'Ik wacht tot iemand anders de eerste stap zet richting opdrachtgever of test.',
+      'Ik zie kansen en durf een kleine stap te zetten, maar zoek nog steun.',
+      'Ik regel wat nodig is, stem af met betrokkenen en rond taken zelfstandig af.',
+      'Ik onderbouw keuzes met tijd, geld of impact en stuur bij als resultaten anders zijn.',
+      'Ik spot nieuwe mogelijkheden en help anderen initiatief te nemen.'
+    ],
+    actions: [
+      [
+        'Noteer één kans (expert bellen, materiaal regelen) en plan vandaag een eerste stap.',
+        'Vraag de docent om mee te denken en plan een moment om terug te koppelen.'
+      ],
+      [
+        'Maak een lijstje van benodigdheden en regel minimaal één resource.',
+        'Plan een afspraak met opdrachtgever of gebruikers en bevestig het tijdstip.'
+      ],
+      [
+        'Schrijf een kort actieplan (wie/wat/wanneer) en deel het in de stand-up.',
+        'Zorg voor een checkmoment en registreer of je op schema ligt.'
+      ],
+      [
+        'Evalueer een experiment op impact en pas je plan aan met het team.',
+        'Vraag twee mensen feedback op je aanpak en verwerk de inzichten.'
+      ],
+      [
+        'Coach een teamgenoot bij het zetten van de eerste stap richting stakeholder.',
+        'Documenteer de opbrengst (foto of verslag) en deel die met de klas.'
+      ]
+    ]
+  },
+  {
+    id: 'planning',
+    name: 'Plannen',
+    color: '#f97316',
+    descriptions: [
+      'Ik werk zonder duidelijk plan en word vaak verrast door tijd of materialen.',
+      'Ik maak een grove planning maar vergeet nog mijlpalen of buffer.',
+      'Ik verdeel het project in stappen met deadlines en hou de voortgang bij.',
+      'Ik plan iteraties, stel bij na reviews en houd rekening met risico’s.',
+      'Ik maak realistische planningen voor het team en help anderen prioriteren.'
+    ],
+    actions: [
+      [
+        'Zet alle taken voor deze week in een lijst en schat per taak de tijd.',
+        'Check materiaal en noteer wat je vooraf moet regelen.'
+      ],
+      [
+        'Maak een simpele tijdlijn met drie mijlpalen: onderzoek, prototype, test.',
+        'Plan per dag één haalbaar doel en bespreek het in de stand-up.'
+      ],
+      [
+        'Zet taken in een bord met deadlines en wijs eigenaren toe.',
+        'Plan een bufferdag voor testen en noteer wie erbij nodig is.'
+      ],
+      [
+        'Evalueer halverwege de sprint wat gehaald is en schuif laag-prio taken.',
+        'Identificeer het grootste risico en plan expliciet tijd om dat te tackelen.'
+      ],
+      [
+        'Maak een planning voor het hele team en vraag om akkoord van docent of opdrachtgever.',
+        'Leer een teamgenoot hoe je een sprint plant en review samen de resultaten.'
+      ]
+    ]
+  },
+  {
+    id: 'doorzetten',
+    name: 'Doorzetten',
+    color: '#ef4444',
+    descriptions: [
+      'Ik geef snel op als iets niet lukt in het ontwerp of experiment.',
+      'Ik probeer opnieuw met hulp, maar raak nog gefrustreerd bij tegenslag.',
+      'Ik breek problemen op in kleine stappen en werk door tot het werkt.',
+      'Ik blijf testen en aanpassen, ook als meerdere pogingen mislukken.',
+      'Ik laat zien dat volhouden resultaat oplevert en motiveer anderen om door te gaan.'
+    ],
+    actions: [
+      [
+        'Noteer wat exact misgaat en probeer het nog één keer met een kleine aanpassing.',
+        'Vraag een klasgenoot om mee te kijken en probeer samen een nieuwe poging.'
+      ],
+      [
+        'Plan twintig minuten om alleen op dit probleem te focussen en houd bij wat je probeert.',
+        'Leg aan de docent uit waar je vastloopt en welke stap je nu gaat nemen.'
+      ],
+      [
+        'Breek de taak in drie kleine tests en voer ze één voor één uit.',
+        'Gebruik een logboek om elke poging en het resultaat te noteren.'
+      ],
+      [
+        'Plan een fix-sessie met het team en spreek af hoeveel pogingen je doet.',
+        'Verander één variabele per test en houd foto’s of metingen bij.'
+      ],
+      [
+        'Schrijf op hoe je tegenslag overwon en deel het met de klas of opdrachtgever.',
+        'Coach een teamgenoot die vastloopt en laat samen het eindresultaat zien.'
+      ]
+    ]
+  }
+];
+
+const stemPositions = [8, 22, 36, 50, 64, 78, 92];
       'Ik wacht af tot iemand anders het initiatief neemt.',
       'Ik zet een eerste stap als ik een kans zie, maar vind het nog spannend.',
       'Ik pak kansen op, regel wat nodig is en rond taken zelfstandig af.',
