@@ -63,10 +63,29 @@
       </header>
       <label class="slider-label">
         Kies jouw niveau (1-5)
-        <input type="range" min="1" max="5" value="3" class="level-slider" />
+        <input type="range" min="1" max="5" value="1" class="level-slider" />
       </label>
       <div class="level-description"></div>
       <div class="next-step"></div>
+      <fieldset class="action-choices">
+        <legend>Kies je groeiactie</legend>
+        <label class="choice">
+          <input type="radio" name="action-choice" value="0" />
+          <span class="choice-text"></span>
+        </label>
+        <label class="choice">
+          <input type="radio" name="action-choice" value="1" />
+          <span class="choice-text"></span>
+        </label>
+      </fieldset>
+      <label class="checkbox-label">
+        <input type="checkbox" class="action-done" /> Ik heb deze actie uitgevoerd
+      </label>
+      <label class="upload-label">
+        Bewijsmateriaal uploaden
+        <input type="file" class="evidence-input" />
+        <span class="evidence-name" aria-live="polite"></span>
+      </label>
     </article>
   </template>
 
