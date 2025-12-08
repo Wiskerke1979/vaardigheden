@@ -4,6 +4,8 @@ Een eenvoudige webapp die leerlingen helpt reflecteren op hun vaardigheden. Ze s
 
 De groeiacties zijn geschreven voor Technasium-opdrachten (contact met opdrachtgevers, prototyping, itereren) en behandelen de vaardigheden communiceren, samenwerken, probleem oplossen, creatief, ondernemend, plannen en doorzetten.
 
+En een nieuwe regel.
+
 ## Gebruik
 Je kunt de app op twee manieren openen:
 
