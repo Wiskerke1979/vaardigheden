@@ -1,3 +1,5 @@
+const STORAGE_KEY = 'groeituin-state-v1';
+
 const skills = [
   {
     id: 'communiceren',
@@ -344,6 +346,51 @@ const skills = [
 ];
 
 const stemPositions = [8, 22, 36, 50, 64, 78, 92];
+const skillState = {};
+
+function baseState() {
+  return {
+    level: 1,
+    chosenAction: null,
+    actionDone: false,
+    evidenceName: '',
+    evidenceData: '',
+    evidenceType: '',
+    validation: ''
+  };
+}
+
+function initState() {
+  skills.forEach((skill) => {
+    skillState[skill.id] = baseState();
+  });
+}
+
+function persistState() {
+  try {
+    const payload = {
+      version: '1.1',
+      generatedAt: new Date().toISOString(),
+      skills: skillState
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+  } catch (e) {
+    console.warn('Kon lokale opslag niet bijwerken', e);
+  }
+}
+
+function restoreState() {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (!saved) return;
+  try {
+    const parsed = JSON.parse(saved);
+    if (!parsed.skills) return;
+    skills.forEach((skill) => {
+      skillState[skill.id] = { ...baseState(), ...parsed.skills[skill.id] };
+    });
+  } catch (e) {
+    console.warn('Kon lokale opslag niet laden', e);
+  }
       'Ik wacht af tot iemand anders het initiatief neemt.',
       'Ik zet een eerste stap als ik een kans zie, maar vind het nog spannend.',
       'Ik pak kansen op, regel wat nodig is en rond taken zelfstandig af.',
@@ -400,6 +447,8 @@ function resetProgress(id) {
   state.chosenAction = null;
   state.actionDone = false;
   state.evidenceName = '';
+   state.evidenceData = '';
+   state.evidenceType = '';
   state.validation = '';
 }
 
@@ -419,6 +468,19 @@ function handleLevelChange(id, targetLevel, sliderElement) {
 
   state.level = targetLevel;
   resetProgress(id);
+  persistState();
+  renderAll();
+}
+
+function readFileAsDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(new Error('Kon bestand niet lezen'));
+    reader.readAsDataURL(file);
+  });
+}
+
   renderAll();
 }
 
@@ -439,6 +501,7 @@ function createCard(skill) {
     radio.addEventListener('change', (e) => {
       state.chosenAction = Number(e.target.value);
       state.validation = '';
+      persistState();
       renderCards();
     });
   });
@@ -448,10 +511,35 @@ function createCard(skill) {
   checkbox.addEventListener('change', () => {
     state.actionDone = checkbox.checked;
     state.validation = '';
+    persistState();
     renderCards();
   });
 
   const evidenceInput = node.querySelector('.evidence-input');
+  evidenceInput.addEventListener('change', async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) {
+      state.evidenceName = '';
+      state.evidenceData = '';
+      state.evidenceType = '';
+      persistState();
+      renderCards();
+      return;
+    }
+
+    try {
+      const dataUrl = await readFileAsDataUrl(file);
+      state.evidenceName = file.name;
+      state.evidenceData = dataUrl;
+      state.evidenceType = file.type;
+      state.validation = '';
+      persistState();
+      renderCards();
+    } catch (err) {
+      console.error(err);
+      state.validation = 'Uploaden is mislukt. Probeer het opnieuw of kies een kleiner bestand.';
+      renderCards();
+    }
   evidenceInput.addEventListener('change', (e) => {
     const file = e.target.files?.[0];
     state.evidenceName = file ? file.name : '';
@@ -561,6 +649,83 @@ function renderAll() {
   renderGarden();
 }
 
+function buildExportPayload() {
+  return {
+    version: '1.1',
+    generatedAt: new Date().toISOString(),
+    skills: skillState
+  };
+}
+
+function downloadExport() {
+  const payload = buildExportPayload();
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'groeituin-voortgang.json';
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+function handleImport(file) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(reader.result);
+      if (!data.skills) throw new Error('Geen skills gevonden');
+      skills.forEach((skill) => {
+        skillState[skill.id] = { ...baseState(), ...data.skills[skill.id] };
+      });
+      persistState();
+      renderAll();
+    } catch (err) {
+      alert('Bestand kon niet worden geïmporteerd. Controleer of het een geldig exportbestand is.');
+      console.error(err);
+    }
+  };
+  reader.readAsText(file);
+}
+
+function buildEmailBody() {
+  const lines = ['Beste docent,', '', 'Hierbij mijn voortgang en bewijs uit de Groeituin:'];
+  skills.forEach((skill) => {
+    const state = skillState[skill.id];
+    const actionText =
+      state.chosenAction !== null ? skill.actions[state.level - 1][state.chosenAction] : 'Geen actie gekozen';
+    lines.push(
+      `- ${skill.name}: niveau ${state.level} (actie: ${actionText}; bewijs: ${state.evidenceName || 'niet toegevoegd'})`
+    );
+  });
+  lines.push('', 'Het exportbestand bevat het bewijs (als data-URL). Voeg het bestand toe aan deze mail als bijlage.');
+  return lines.join('\n');
+}
+
+function shareUpdate() {
+  downloadExport();
+  const subject = encodeURIComponent('Technasium voortgang - Groeituin');
+  const body = encodeURIComponent(buildEmailBody());
+  window.location.href = `mailto:?subject=${subject}&body=${body}`;
+}
+
+function init() {
+  initState();
+  restoreState();
+  renderAll();
+
+  const exportButton = document.getElementById('export-button');
+  const importInput = document.getElementById('import-input');
+  const shareButton = document.getElementById('share-button');
+
+  if (exportButton) exportButton.addEventListener('click', downloadExport);
+  if (importInput)
+    importInput.addEventListener('change', (e) => {
+      const file = e.target.files?.[0];
+      handleImport(file);
+      e.target.value = '';
+    });
+  if (shareButton) shareButton.addEventListener('click', shareUpdate);
 function init() {
   initState();
   renderAll();

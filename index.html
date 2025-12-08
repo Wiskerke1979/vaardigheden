@@ -32,6 +32,12 @@
           <h2>Bloem van groei</h2>
         </div>
         <p class="panel-subtitle">Elke vaardigheid krijgt een eigen stengel en bloemblad. Hoe hoger je niveau, hoe groter de bloem en hoe verder de stengel groeit.</p>
+        <div class="action-bar">
+          <button id="export-button" class="ghost-button" type="button">Exporteer voortgang</button>
+          <label for="import-input" class="ghost-button file-trigger" role="button" tabindex="0">Importeer voortgang</label>
+          <input id="import-input" type="file" accept="application/json" aria-label="Importeer voortgang" />
+          <button id="share-button" class="primary-button" type="button">Stuur update naar docent</button>
+        </div>
       </div>
       <div id="garden" class="garden" aria-live="polite"></div>
       <div class="legend">

@@ -79,6 +79,54 @@ p { margin: 0 0 8px; }
 .panel-heading { display: flex; justify-content: space-between; gap: 20px; align-items: baseline; }
 .panel-subtitle { color: var(--muted); max-width: 360px; }
 
+.action-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.primary-button,
+.ghost-button {
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.2s ease;
+  font-family: inherit;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+  color: #fff;
+  box-shadow: var(--shadow);
+  border: none;
+}
+
+.ghost-button {
+  background: #f8fafc;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.primary-button:hover,
+.ghost-button:hover { transform: translateY(-1px); }
+
+.primary-button:active,
+.ghost-button:active { transform: translateY(0); }
+
+#import-input {
+  display: none;
+}
+
+.file-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .garden-panel { position: relative; overflow: hidden; }
 
 .garden {
