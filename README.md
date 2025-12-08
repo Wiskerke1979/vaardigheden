@@ -2,9 +2,6 @@
 
 Een eenvoudige webapp die leerlingen helpt reflecteren op hun vaardigheden. Ze scoren zichzelf op vijf niveaus en zien dit terug in een groeiende bloem. Per niveau staat uitgelegd wat het betekent en welke actie helpt om door te groeien.
 
-De groeiacties zijn geschreven voor Technasium-opdrachten (contact met opdrachtgevers, prototyping, itereren) en behandelen de vaardigheden communiceren, samenwerken, probleem oplossen, creatief, ondernemend, plannen en doorzetten.
-
-En een nieuwe regel.
 
 ## Gebruik
 Je kunt de app op twee manieren openen:
