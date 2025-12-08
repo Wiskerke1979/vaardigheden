@@ -19,6 +19,7 @@ Je kunt de app op twee manieren openen:
 In de app pas je per vaardigheid het niveau aan met de schuifregelaar. De bloem groeit automatisch mee en de kaarten laten zien wat het niveau betekent en welke volgende stap je kunt zetten.
 
 ### Opslaan, importeren en delen met docent
+- **Start nieuw**: kies op het startscherm of via de knop "Nieuw bestand" om met alle vaardigheden op niveau 1 te beginnen.
 - **Exporteer voortgang**: klik op de knop bovenin de "Bloem van groei"-sectie. Er wordt een `groeituin-voortgang.json` met
   je niveaus, gekozen acties en bewijs (als data-URL) gedownload.
 - **Importeer voortgang**: klik op "Importeer voortgang" en kies een eerder gedownload JSON-bestand. Je niveaus en bewijs

@@ -360,6 +360,7 @@ function baseState() {
   };
 }
 
+function fillBaseState() {
 function initState() {
   skills.forEach((skill) => {
     skillState[skill.id] = baseState();
@@ -447,6 +448,8 @@ function resetProgress(id) {
   state.chosenAction = null;
   state.actionDone = false;
   state.evidenceName = '';
+  state.evidenceData = '';
+  state.evidenceType = '';
    state.evidenceData = '';
    state.evidenceType = '';
   state.validation = '';
@@ -680,12 +683,30 @@ function handleImport(file) {
       });
       persistState();
       renderAll();
+      hideStartOverlay();
     } catch (err) {
       alert('Bestand kon niet worden geïmporteerd. Controleer of het een geldig exportbestand is.');
       console.error(err);
     }
   };
   reader.readAsText(file);
+}
+
+function showStartOverlay() {
+  const overlay = document.getElementById('start-overlay');
+  if (overlay) overlay.classList.remove('hidden');
+}
+
+function hideStartOverlay() {
+  const overlay = document.getElementById('start-overlay');
+  if (overlay) overlay.classList.add('hidden');
+}
+
+function startNewProgress() {
+  fillBaseState();
+  persistState();
+  renderAll();
+  hideStartOverlay();
 }
 
 function buildEmailBody() {
@@ -710,6 +731,14 @@ function shareUpdate() {
 }
 
 function init() {
+  fillBaseState();
+  const hasSavedState = Boolean(localStorage.getItem(STORAGE_KEY));
+  if (hasSavedState) {
+    restoreState();
+    hideStartOverlay();
+  } else {
+    showStartOverlay();
+  }
   initState();
   restoreState();
   renderAll();
@@ -717,6 +746,9 @@ function init() {
   const exportButton = document.getElementById('export-button');
   const importInput = document.getElementById('import-input');
   const shareButton = document.getElementById('share-button');
+  const newButton = document.getElementById('new-button');
+  const startNewButton = document.getElementById('start-new-button');
+  const startImportButton = document.getElementById('start-import-button');
 
   if (exportButton) exportButton.addEventListener('click', downloadExport);
   if (importInput)
@@ -726,6 +758,16 @@ function init() {
       e.target.value = '';
     });
   if (shareButton) shareButton.addEventListener('click', shareUpdate);
+  if (newButton)
+    newButton.addEventListener('click', () => {
+      const confirmReset = window.confirm('Start nieuw met alle vaardigheden op niveau 1? Huidige voortgang wordt overschreven.');
+      if (confirmReset) startNewProgress();
+    });
+  if (startNewButton) startNewButton.addEventListener('click', startNewProgress);
+  if (startImportButton)
+    startImportButton.addEventListener('click', () => {
+      importInput?.click();
+    });
 function init() {
   initState();
   renderAll();

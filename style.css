@@ -87,6 +87,36 @@ p { margin: 0 0 8px; }
   margin-left: auto;
 }
 
+.start-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 10;
+}
+
+.start-overlay.hidden { display: none; }
+
+.start-dialog {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  max-width: 520px;
+  width: min(90vw, 560px);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 10px;
+}
+
+.start-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .primary-button,
 .ghost-button {
   border-radius: 12px;

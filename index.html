@@ -25,6 +25,18 @@
   </header>
 
   <main class="layout">
+    <div id="start-overlay" class="start-overlay hidden" role="dialog" aria-modal="true">
+      <div class="start-dialog">
+        <p class="eyebrow">Nieuwe leerling</p>
+        <h2>Begin met een blanco groeibestand</h2>
+        <p class="panel-subtitle">Start op niveau 1 met alle Technasium-vaardigheden of laad een eerder opgeslagen bestand.</p>
+        <div class="start-actions">
+          <button id="start-new-button" class="primary-button" type="button">Start nieuw (niveau 1)</button>
+          <button id="start-import-button" class="ghost-button" type="button">Importeer eerder bestand</button>
+        </div>
+      </div>
+    </div>
+
     <section class="panel garden-panel">
       <div class="panel-heading">
         <div>
@@ -33,6 +45,7 @@
         </div>
         <p class="panel-subtitle">Elke vaardigheid krijgt een eigen stengel en bloemblad. Hoe hoger je niveau, hoe groter de bloem en hoe verder de stengel groeit.</p>
         <div class="action-bar">
+          <button id="new-button" class="ghost-button" type="button">Nieuw bestand</button>
           <button id="export-button" class="ghost-button" type="button">Exporteer voortgang</button>
           <label for="import-input" class="ghost-button file-trigger" role="button" tabindex="0">Importeer voortgang</label>
           <input id="import-input" type="file" accept="application/json" aria-label="Importeer voortgang" />
