@@ -709,6 +709,12 @@ function startNewProgress() {
   hideStartOverlay();
 }
 
+function restoreSavedProgress() {
+  restoreState();
+  renderAll();
+  hideStartOverlay();
+}
+
 function buildEmailBody() {
   const lines = ['Beste docent,', '', 'Hierbij mijn voortgang en bewijs uit de Groeituin:'];
   skills.forEach((skill) => {
@@ -732,6 +738,10 @@ function shareUpdate() {
 
 function init() {
   fillBaseState();
+  renderAll();
+  showStartOverlay();
+
+  const hasSavedState = Boolean(localStorage.getItem(STORAGE_KEY));
   const hasSavedState = Boolean(localStorage.getItem(STORAGE_KEY));
   if (hasSavedState) {
     restoreState();
@@ -749,6 +759,7 @@ function init() {
   const newButton = document.getElementById('new-button');
   const startNewButton = document.getElementById('start-new-button');
   const startImportButton = document.getElementById('start-import-button');
+  const startRestoreButton = document.getElementById('start-restore-button');
 
   if (exportButton) exportButton.addEventListener('click', downloadExport);
   if (importInput)
@@ -768,6 +779,10 @@ function init() {
     startImportButton.addEventListener('click', () => {
       importInput?.click();
     });
+  if (startRestoreButton && hasSavedState) {
+    startRestoreButton.classList.remove('hidden');
+    startRestoreButton.addEventListener('click', restoreSavedProgress);
+  }
 function init() {
   initState();
   renderAll();

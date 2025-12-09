@@ -16,6 +16,10 @@ Je kunt de app op twee manieren openen:
    - Start in de projectmap het commando: `python -m http.server 8000`.
    - Open daarna http://localhost:8000 in je browser.
 
+In de app kies je op het startscherm of je een bestaand bestand importeert of met de standaardinstellingen op niveau 1 begint. Daarna pas je per vaardigheid het niveau aan met de schuifregelaar. De bloem groeit automatisch mee en de kaarten laten zien wat het niveau betekent en welke volgende stap je kunt zetten.
+
+### Opslaan, importeren en delen met docent
+- **Start nieuw**: kies op het startscherm voor "Start nieuw (niveau 1)" of gebruik de knop "Nieuw bestand" in de toolbar om alle vaardigheden te resetten.
 In de app pas je per vaardigheid het niveau aan met de schuifregelaar. De bloem groeit automatisch mee en de kaarten laten zien wat het niveau betekent en welke volgende stap je kunt zetten.
 
 ### Opslaan, importeren en delen met docent
