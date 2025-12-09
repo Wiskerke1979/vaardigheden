@@ -15,6 +15,7 @@
       <p class="eyebrow">Reflectietool voor leerlingen</p>
       <h1>Groeituin voor vaardigheden</h1>
       <p class="lede">Scoor jezelf op vijf niveaus, zie je groei als een bloem en ontdek direct wat je kunt doen om in je Technasiumproject het volgende niveau te halen.</p>
+      <p class="lede">Scoor jezelf op vijf niveaus, zie je groei als een bloem en ontdek direct wat je kunt doen om het volgende niveau te halen.</p>
     </div>
     <div class="header-badge">
       <span class="badge-label">Niveaus</span>
@@ -24,6 +25,24 @@
   </header>
 
   <main class="layout">
+    <div id="start-overlay" class="start-overlay hidden" role="dialog" aria-modal="true">
+      <div class="start-dialog">
+        <p class="eyebrow">Nieuwe leerling</p>
+        <h2>Kies eerst hoe je wilt starten</h2>
+        <p class="panel-subtitle">Begin standaard met niveau 1 voor alle vaardigheden of laad een eerder opgeslagen bestand in.</p>
+        <div class="start-actions">
+          <button id="start-new-button" class="primary-button" type="button">Start nieuw (niveau 1)</button>
+          <button id="start-import-button" class="ghost-button" type="button">Importeer eerder bestand</button>
+          <button id="start-restore-button" class="ghost-button hidden" type="button">Ga verder met lokaal opgeslagen data</button>
+        <h2>Begin met een blanco groeibestand</h2>
+        <p class="panel-subtitle">Start op niveau 1 met alle Technasium-vaardigheden of laad een eerder opgeslagen bestand.</p>
+        <div class="start-actions">
+          <button id="start-new-button" class="primary-button" type="button">Start nieuw (niveau 1)</button>
+          <button id="start-import-button" class="ghost-button" type="button">Importeer eerder bestand</button>
+        </div>
+      </div>
+    </div>
+
     <section class="panel garden-panel">
       <div class="panel-heading">
         <div>
@@ -59,6 +78,7 @@
           <h2>Jouw vaardigheden</h2>
         </div>
         <p class="panel-subtitle">Kies je niveau in je Technasiumopdracht, lees wat het betekent en zie direct wat je kunt doen om door te groeien.</p>
+        <p class="panel-subtitle">Kies je niveau, lees wat het betekent en zie direct wat je kunt doen om door te groeien.</p>
       </div>
       <div id="skill-cards" class="cards"></div>
     </section>
