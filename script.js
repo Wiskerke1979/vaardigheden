@@ -1,5 +1,13 @@
 const STORAGE_KEY = 'groeituin-state-v2';
 
+const levelDefinitions = [
+  'Niveau 1 – startend: je verkent wat de opdracht inhoudt en hebt begeleiding nodig.',
+  'Niveau 2 – basis: je pakt gericht taken op en deelt je eerste resultaten.',
+  'Niveau 3 – zelfstandig: je werkt planmatig, vergelijkt opties en stemt af met betrokkenen.',
+  'Niveau 4 – sterk: je voorkomt problemen, helpt het team vooruit en past keuzes onderbouwd aan.',
+  'Niveau 5 – voorbeeld: je coacht anderen, borgt kwaliteit en deelt je aanpak met de klas.'
+];
+
 const skills = [
   {
     id: 'communiceren',
@@ -138,6 +146,74 @@ const skills = [
     ]
   },
   {
+    id: 'plannen',
+    name: 'Plannen',
+    color: '#f97316',
+    descriptions: [
+      'Ik begin zonder duidelijk stappenplan en verlies snel het overzicht.',
+      'Ik maak een korte planning maar houd me er nog niet altijd aan.',
+      'Ik werk met een planning, deel die met het team en stuur bij als er iets verandert.',
+      'Ik bewaak de planning, spreek anderen aan op afspraken en voorkom uitloop.',
+      'Ik help het team een realistische planning te maken en zorg dat we op tijd afronden.'
+    ],
+    actions: [
+      [
+        'Schrijf drie stappen op die je vandaag gaat doen en vink ze na afloop af.',
+        'Zet een timer van 25 minuten (pomodoro) en werk gefocust aan één taak.'
+      ],
+      [
+        'Plan je week met deadlines en wijs per dag één taak toe.',
+        'Vraag een teamlid om jouw planning na te lopen en pas hem samen aan.'
+      ],
+      [
+        'Maak een buffer voor risico’s en noteer wat je doet als iets uitloopt.',
+        'Werk met een takenbord (to-do, bezig, klaar) en update het dagelijks.'
+      ],
+      [
+        'Plan een korte check-in met het team en herverdeel het werk als dat nodig is.',
+        'Signaleer een blokkade en regel direct hulp of een alternatief.'
+      ],
+      [
+        'Stel prioriteiten met het team en schrap taken die weinig opleveren.',
+        'Maak een korte evaluatie van de planning en wat jullie geleerd hebben voor het volgende project.'
+      ]
+    ]
+  },
+  {
+    id: 'doorzetten',
+    name: 'Doorzetten',
+    color: '#0ea5e9',
+    descriptions: [
+      'Ik haak snel af als iets tegenzit en wacht tot iemand helpt.',
+      'Ik probeer het opnieuw na feedback maar heb nog vaak aanmoediging nodig.',
+      'Ik ga door bij tegenslag, zoek hulpbronnen en rond taken meestal af.',
+      'Ik blijf kalm onder druk, kies alternatieven en help het team doorgaan.',
+      'Ik inspireer anderen om vol te houden en laat zien hoe je obstakels overwint.'
+    ],
+    actions: [
+      [
+        'Noteer wat je lastig vindt en kies één kleine stap om toch verder te gaan.',
+        'Vraag een klasgenoot om tien minuten mee te kijken wanneer je vastloopt.'
+      ],
+      [
+        'Plan een moment om feedback op te volgen en probeer de taak opnieuw.',
+        'Bepaal vooraf wat je doet als je eerste poging mislukt.'
+      ],
+      [
+        'Splits een moeilijke taak op in drie deeltaken en rond de eerste vandaag af.',
+        'Vraag hulp bij een expert of docent en noteer wat je hebt geleerd.'
+      ],
+      [
+        'Bedenk twee alternatieve routes voor je huidige blokkade en voer er één uit.',
+        'Help een teamlid dat vastloopt en evalueer samen de aanpak.'
+      ],
+      [
+        'Schrijf op hoe je een lastig moment hebt opgelost en deel dat met het team.',
+        'Coach een klasgenoot om een tegenslag om te buigen tot een leerpunt.'
+      ]
+    ]
+  },
+  {
     id: 'ondernemend',
     name: 'Ondernemend',
     color: '#9b7bff',
@@ -170,47 +246,9 @@ const skills = [
         'Documenteer de opbrengst (foto of verslag) en deel die met de klas.'
       ]
     ]
-  },
-  {
-    id: 'plannen',
-    name: 'Plannen & doorzetten',
-    color: '#f97316',
-    descriptions: [
-      'Ik begin gewoon en zie later wel wat nodig is.',
-      'Ik maak een korte planning maar houd me er nog niet altijd aan vast.',
-      'Ik werk met een planning en stuur bij als er iets verandert.',
-      'Ik bewaak de planning, spreek anderen aan en zoek oplossingen bij tegenslag.',
-      'Ik help het team vasthouden aan een realistisch plan en zorg dat we afronden ondanks obstakels.'
-    ],
-    actions: [
-      [
-        'Schrijf drie stappen op die je vandaag gaat doen en vink ze na afloop af.',
-        'Zet een timer van 25 minuten (pomodoro) en werk gefocust aan één taak.'
-      ],
-      [
-        'Plan je week met deadlines en wijs per dag één taak toe.',
-        'Vraag een teamlid om jouw planning na te lopen en pas hem samen aan.'
-      ],
-      [
-        'Maak een buffer voor risico’s en noteer wat je doet als iets uitloopt.',
-        'Werk met een takenbord (to-do, bezig, klaar) en update het dagelijks.'
-      ],
-      [
-        'Signaleer een blokkade en regel direct hulp of een alternatief.',
-        'Plan een korte check-in met het team en herverdeel het werk als dat nodig is.'
-      ],
-      [
-        'Stel prioriteiten met het team en schrap taken die weinig opleveren.',
-        'Maak een korte evaluatie van de planning en wat jullie geleerd hebben voor het volgende project.'
-      ]
-    ]
   }
-];
+  ];
 
-  }
-];
-
-const stemPositions = [12, 30, 48, 66, 84];
 const skillState = {};
 
 function baseState() {
@@ -260,6 +298,19 @@ function restoreState() {
 
 function levelLabel(level) {
   return `Niveau ${level}/5`;
+}
+
+function renderLevelLegend() {
+  const list = document.getElementById('level-legend-list');
+  if (!list) return;
+  list.innerHTML = '';
+
+  levelDefinitions.forEach((text, index) => {
+    const item = document.createElement('li');
+    item.textContent = text;
+    item.dataset.level = index + 1;
+    list.appendChild(item);
+  });
 }
 
 function resetProgress(id) {
@@ -462,6 +513,7 @@ function renderGarden() {
 function renderAll() {
   renderCards();
   renderGarden();
+  renderLevelLegend();
 }
 
 function buildExportPayload() {
@@ -510,16 +562,22 @@ function startNewProgress() {
 }
 
 function buildEmailBody() {
-  const lines = ['Beste docent,', '', 'Hierbij mijn voortgang en bewijs uit de Groeituin:'];
+  const lines = [
+    'Beste docent,',
+    '',
+    'Hierbij mijn voortgang en bewijs uit de Groeituin (bewijsmateriaal staat in het exportbestand dat is gedownload):'
+  ];
   skills.forEach((skill) => {
     const state = skillState[skill.id];
     const actionText =
       state.chosenAction !== null ? skill.actions[state.level - 1][state.chosenAction] : 'Geen actie gekozen';
+    const doneLabel = state.actionDone ? 'actie afgerond' : 'actie nog bezig';
+    const evidenceLabel = state.evidenceName ? `bewijs: ${state.evidenceName}` : 'geen bewijs toegevoegd';
     lines.push(
-      `- ${skill.name}: niveau ${state.level} (actie: ${actionText}; bewijs: ${state.evidenceName || 'niet toegevoegd'})`
+      `- ${skill.name}: niveau ${state.level} (${actionText}; ${doneLabel}; ${evidenceLabel})`
     );
   });
-  lines.push('', 'Het exportbestand bevat het bewijs (als data-URL). Voeg het bestand toe aan deze mail als bijlage.');
+  lines.push('', 'Voeg het exportbestand toe aan deze mail zodat u het bewijs kunt bekijken.');
   return lines.join('\n');
 }
 
