@@ -76,9 +76,9 @@ p { margin: 0 0 8px; }
 .badge-caption { margin: 4px 0 0; opacity: 0.85; font-size: 12px; }
 
 .layout {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
   margin-top: 20px;
 }
 
@@ -145,7 +145,7 @@ p { margin: 0 0 8px; }
 
 .garden {
   position: relative;
-  height: 420px;
+  height: 460px;
   margin-top: 16px;
   border-radius: 14px;
   background: linear-gradient(#e0f2fe, #fdf2f8 70%);
