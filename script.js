@@ -207,6 +207,10 @@ const skills = [
   }
 ];
 
+  }
+];
+
+const stemPositions = [12, 30, 48, 66, 84];
 const skillState = {};
 
 function baseState() {
