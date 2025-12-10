@@ -146,6 +146,74 @@ const skills = [
     ]
   },
   {
+    id: 'plannen',
+    name: 'Plannen',
+    color: '#f97316',
+    descriptions: [
+      'Ik begin zonder duidelijk stappenplan en verlies snel het overzicht.',
+      'Ik maak een korte planning maar houd me er nog niet altijd aan.',
+      'Ik werk met een planning, deel die met het team en stuur bij als er iets verandert.',
+      'Ik bewaak de planning, spreek anderen aan op afspraken en voorkom uitloop.',
+      'Ik help het team een realistische planning te maken en zorg dat we op tijd afronden.'
+    ],
+    actions: [
+      [
+        'Schrijf drie stappen op die je vandaag gaat doen en vink ze na afloop af.',
+        'Zet een timer van 25 minuten (pomodoro) en werk gefocust aan één taak.'
+      ],
+      [
+        'Plan je week met deadlines en wijs per dag één taak toe.',
+        'Vraag een teamlid om jouw planning na te lopen en pas hem samen aan.'
+      ],
+      [
+        'Maak een buffer voor risico’s en noteer wat je doet als iets uitloopt.',
+        'Werk met een takenbord (to-do, bezig, klaar) en update het dagelijks.'
+      ],
+      [
+        'Plan een korte check-in met het team en herverdeel het werk als dat nodig is.',
+        'Signaleer een blokkade en regel direct hulp of een alternatief.'
+      ],
+      [
+        'Stel prioriteiten met het team en schrap taken die weinig opleveren.',
+        'Maak een korte evaluatie van de planning en wat jullie geleerd hebben voor het volgende project.'
+      ]
+    ]
+  },
+  {
+    id: 'doorzetten',
+    name: 'Doorzetten',
+    color: '#0ea5e9',
+    descriptions: [
+      'Ik haak snel af als iets tegenzit en wacht tot iemand helpt.',
+      'Ik probeer het opnieuw na feedback maar heb nog vaak aanmoediging nodig.',
+      'Ik ga door bij tegenslag, zoek hulpbronnen en rond taken meestal af.',
+      'Ik blijf kalm onder druk, kies alternatieven en help het team doorgaan.',
+      'Ik inspireer anderen om vol te houden en laat zien hoe je obstakels overwint.'
+    ],
+    actions: [
+      [
+        'Noteer wat je lastig vindt en kies één kleine stap om toch verder te gaan.',
+        'Vraag een klasgenoot om tien minuten mee te kijken wanneer je vastloopt.'
+      ],
+      [
+        'Plan een moment om feedback op te volgen en probeer de taak opnieuw.',
+        'Bepaal vooraf wat je doet als je eerste poging mislukt.'
+      ],
+      [
+        'Splits een moeilijke taak op in drie deeltaken en rond de eerste vandaag af.',
+        'Vraag hulp bij een expert of docent en noteer wat je hebt geleerd.'
+      ],
+      [
+        'Bedenk twee alternatieve routes voor je huidige blokkade en voer er één uit.',
+        'Help een teamlid dat vastloopt en evalueer samen de aanpak.'
+      ],
+      [
+        'Schrijf op hoe je een lastig moment hebt opgelost en deel dat met het team.',
+        'Coach een klasgenoot om een tegenslag om te buigen tot een leerpunt.'
+      ]
+    ]
+  },
+  {
     id: 'ondernemend',
     name: 'Ondernemend',
     color: '#9b7bff',
@@ -176,40 +244,6 @@ const skills = [
       [
         'Coach een teamgenoot bij het zetten van de eerste stap richting stakeholder.',
         'Documenteer de opbrengst (foto of verslag) en deel die met de klas.'
-      ]
-    ]
-  },
-  {
-    id: 'plannen',
-    name: 'Plannen & doorzetten',
-    color: '#f97316',
-    descriptions: [
-      'Ik begin gewoon en zie later wel wat nodig is.',
-      'Ik maak een korte planning maar houd me er nog niet altijd aan vast.',
-      'Ik werk met een planning en stuur bij als er iets verandert.',
-      'Ik bewaak de planning, spreek anderen aan en zoek oplossingen bij tegenslag.',
-      'Ik help het team vasthouden aan een realistisch plan en zorg dat we afronden ondanks obstakels.'
-    ],
-    actions: [
-      [
-        'Schrijf drie stappen op die je vandaag gaat doen en vink ze na afloop af.',
-        'Zet een timer van 25 minuten (pomodoro) en werk gefocust aan één taak.'
-      ],
-      [
-        'Plan je week met deadlines en wijs per dag één taak toe.',
-        'Vraag een teamlid om jouw planning na te lopen en pas hem samen aan.'
-      ],
-      [
-        'Maak een buffer voor risico’s en noteer wat je doet als iets uitloopt.',
-        'Werk met een takenbord (to-do, bezig, klaar) en update het dagelijks.'
-      ],
-      [
-        'Signaleer een blokkade en regel direct hulp of een alternatief.',
-        'Plan een korte check-in met het team en herverdeel het werk als dat nodig is.'
-      ],
-      [
-        'Stel prioriteiten met het team en schrap taken die weinig opleveren.',
-        'Maak een korte evaluatie van de planning en wat jullie geleerd hebben voor het volgende project.'
       ]
     ]
   }
