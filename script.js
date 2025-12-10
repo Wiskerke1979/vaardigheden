@@ -170,6 +170,43 @@ const skills = [
         'Documenteer de opbrengst (foto of verslag) en deel die met de klas.'
       ]
     ]
+  },
+  {
+    id: 'plannen',
+    name: 'Plannen & doorzetten',
+    color: '#f97316',
+    descriptions: [
+      'Ik begin gewoon en zie later wel wat nodig is.',
+      'Ik maak een korte planning maar houd me er nog niet altijd aan vast.',
+      'Ik werk met een planning en stuur bij als er iets verandert.',
+      'Ik bewaak de planning, spreek anderen aan en zoek oplossingen bij tegenslag.',
+      'Ik help het team vasthouden aan een realistisch plan en zorg dat we afronden ondanks obstakels.'
+    ],
+    actions: [
+      [
+        'Schrijf drie stappen op die je vandaag gaat doen en vink ze na afloop af.',
+        'Zet een timer van 25 minuten (pomodoro) en werk gefocust aan één taak.'
+      ],
+      [
+        'Plan je week met deadlines en wijs per dag één taak toe.',
+        'Vraag een teamlid om jouw planning na te lopen en pas hem samen aan.'
+      ],
+      [
+        'Maak een buffer voor risico’s en noteer wat je doet als iets uitloopt.',
+        'Werk met een takenbord (to-do, bezig, klaar) en update het dagelijks.'
+      ],
+      [
+        'Signaleer een blokkade en regel direct hulp of een alternatief.',
+        'Plan een korte check-in met het team en herverdeel het werk als dat nodig is.'
+      ],
+      [
+        'Stel prioriteiten met het team en schrap taken die weinig opleveren.',
+        'Maak een korte evaluatie van de planning en wat jullie geleerd hebben voor het volgende project.'
+      ]
+    ]
+  }
+];
+
   }
 ];
 
@@ -374,12 +411,14 @@ function renderGarden() {
   const garden = document.getElementById('garden');
   garden.innerHTML = '';
 
+  const spacing = 100 / (skills.length + 1);
+
   skills.forEach((skill, index) => {
     const state = skillState[skill.id];
     const level = state.level;
     const stem = document.createElement('div');
     stem.className = 'stem';
-    stem.style.left = `${stemPositions[index]}%`;
+    stem.style.left = `${spacing * (index + 1)}%`;
 
     const stemLine = document.createElement('div');
     stemLine.className = 'stem-line';

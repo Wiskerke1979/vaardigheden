@@ -2,6 +2,7 @@
 
 Een eenvoudige webapp die leerlingen helpt reflecteren op hun vaardigheden. Ze scoren zichzelf op vijf niveaus en zien dit terug in een groeiende bloem. Per niveau staat uitgelegd wat het betekent en welke actie helpt om door te groeien.
 
+De app richt zich op zes vaardigheden: **communiceren, samenwerken, probleem oplossen, creatief, ondernemend** en **plannen & doorzetten**. Bovenaan staat de bloemweergave over de hele breedte; daaronder staan de kaarten per vaardigheid.
 De app richt zich op vijf vaardigheden: **communiceren, samenwerken, probleem oplossen, creatief** en **ondernemend**.
 
 ## Gebruik
