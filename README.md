@@ -20,6 +20,14 @@ In de app begin je meteen met alle vaardigheden op niveau 1, zodat je direct kun
 
 ### Opslaan, importeren en delen met docent
 - **Start nieuw**: gebruik de knop "Nieuw bestand" in de toolbar om alle vaardigheden te resetten naar niveau 1.
+In de app kies je op het startscherm of je een bestaand bestand importeert of met de standaardinstellingen op niveau 1 begint. Daarna pas je per vaardigheid het niveau aan met de schuifregelaar. De bloem groeit automatisch mee en de kaarten laten zien wat het niveau betekent en welke volgende stap je kunt zetten.
+
+### Opslaan, importeren en delen met docent
+- **Start nieuw**: kies op het startscherm voor "Start nieuw (niveau 1)" of gebruik de knop "Nieuw bestand" in de toolbar om alle vaardigheden te resetten.
+In de app pas je per vaardigheid het niveau aan met de schuifregelaar. De bloem groeit automatisch mee en de kaarten laten zien wat het niveau betekent en welke volgende stap je kunt zetten.
+
+### Opslaan, importeren en delen met docent
+- **Start nieuw**: kies op het startscherm of via de knop "Nieuw bestand" om met alle vaardigheden op niveau 1 te beginnen.
 - **Exporteer voortgang**: klik op de knop bovenin de "Bloem van groei"-sectie. Er wordt een `groeituin-voortgang.json` met
   je niveaus, gekozen acties en bewijs (als data-URL) gedownload.
 - **Importeer voortgang**: klik op "Importeer voortgang" en kies een eerder gedownload JSON-bestand. Je niveaus en bewijs
