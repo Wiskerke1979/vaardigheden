@@ -335,7 +335,7 @@ function createCard(skill) {
 
   const evidenceInput = node.querySelector('.evidence-input');
   evidenceInput.addEventListener('change', async (e) => {
-    const file = e.target.files?.[0];
+    const file = e.target.files && e.target.files[0];
     if (!file) {
       state.evidenceName = '';
       state.evidenceData = '';
@@ -553,7 +553,7 @@ function init() {
     if (exportButton) exportButton.addEventListener('click', downloadExport);
     if (importInput)
       importInput.addEventListener('change', (e) => {
-        const file = e.target.files?.[0];
+        const file = e.target.files && e.target.files[0];
         handleImport(file);
         e.target.value = '';
       });
