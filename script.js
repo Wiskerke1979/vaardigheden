@@ -1,5 +1,13 @@
 const STORAGE_KEY = 'groeituin-state-v2';
 
+const levelDefinitions = [
+  'Niveau 1 – startend: je verkent wat de opdracht inhoudt en hebt begeleiding nodig.',
+  'Niveau 2 – basis: je pakt gericht taken op en deelt je eerste resultaten.',
+  'Niveau 3 – zelfstandig: je werkt planmatig, vergelijkt opties en stemt af met betrokkenen.',
+  'Niveau 4 – sterk: je voorkomt problemen, helpt het team vooruit en past keuzes onderbouwd aan.',
+  'Niveau 5 – voorbeeld: je coacht anderen, borgt kwaliteit en deelt je aanpak met de klas.'
+];
+
 const skills = [
   {
     id: 'communiceren',
@@ -205,12 +213,8 @@ const skills = [
       ]
     ]
   }
-];
+  ];
 
-  }
-];
-
-const stemPositions = [12, 30, 48, 66, 84];
 const skillState = {};
 
 function baseState() {
@@ -260,6 +264,19 @@ function restoreState() {
 
 function levelLabel(level) {
   return `Niveau ${level}/5`;
+}
+
+function renderLevelLegend() {
+  const list = document.getElementById('level-legend-list');
+  if (!list) return;
+  list.innerHTML = '';
+
+  levelDefinitions.forEach((text, index) => {
+    const item = document.createElement('li');
+    item.textContent = text;
+    item.dataset.level = index + 1;
+    list.appendChild(item);
+  });
 }
 
 function resetProgress(id) {
@@ -462,6 +479,7 @@ function renderGarden() {
 function renderAll() {
   renderCards();
   renderGarden();
+  renderLevelLegend();
 }
 
 function buildExportPayload() {
@@ -510,16 +528,22 @@ function startNewProgress() {
 }
 
 function buildEmailBody() {
-  const lines = ['Beste docent,', '', 'Hierbij mijn voortgang en bewijs uit de Groeituin:'];
+  const lines = [
+    'Beste docent,',
+    '',
+    'Hierbij mijn voortgang en bewijs uit de Groeituin (bewijsmateriaal staat in het exportbestand dat is gedownload):'
+  ];
   skills.forEach((skill) => {
     const state = skillState[skill.id];
     const actionText =
       state.chosenAction !== null ? skill.actions[state.level - 1][state.chosenAction] : 'Geen actie gekozen';
+    const doneLabel = state.actionDone ? 'actie afgerond' : 'actie nog bezig';
+    const evidenceLabel = state.evidenceName ? `bewijs: ${state.evidenceName}` : 'geen bewijs toegevoegd';
     lines.push(
-      `- ${skill.name}: niveau ${state.level} (actie: ${actionText}; bewijs: ${state.evidenceName || 'niet toegevoegd'})`
+      `- ${skill.name}: niveau ${state.level} (${actionText}; ${doneLabel}; ${evidenceLabel})`
     );
   });
-  lines.push('', 'Het exportbestand bevat het bewijs (als data-URL). Voeg het bestand toe aan deze mail als bijlage.');
+  lines.push('', 'Voeg het exportbestand toe aan deze mail zodat u het bewijs kunt bekijken.');
   return lines.join('\n');
 }
 
